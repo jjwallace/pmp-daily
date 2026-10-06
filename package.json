@@ -1,0 +1,34 @@
+{
+  "name": "pmp-daily",
+  "version": "1.0.0",
+  "description": "Daily PMP exam practice, Duolingo style",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "tauri": "tauri",
+    "validate": "tsx scripts/validate.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-haptics": "^2.4.1",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.65.1",
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@tauri-apps/cli": "^2",
+    "svelte": "^5.56.3",
+    "svelte-check": "^4.6.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vite": "^8.0.16"
+  }
+}
