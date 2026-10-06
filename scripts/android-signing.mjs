@@ -24,8 +24,8 @@ if (gradle.includes('signingConfigs')) {
 const signing = `
     signingConfigs {
         create("release") {
-            val keystoreProperties = java.util.Properties()
-            keystoreProperties.load(java.io.FileInputStream(rootProject.file("keystore.properties")))
+            val keystoreProperties = Properties()
+            keystoreProperties.load(FileInputStream(rootProject.file("keystore.properties")))
             keyAlias = keystoreProperties["keyAlias"] as String
             keyPassword = keystoreProperties["password"] as String
             storeFile = file(keystoreProperties["storeFile"] as String)
@@ -35,6 +35,10 @@ const signing = `
     }`;
 
 const before = gradle;
+// Inside android { } a bare `java` resolves to the Gradle extension, so import the classes up top
+for (const imp of ['import java.util.Properties', 'import java.io.FileInputStream']) {
+  if (!gradle.includes(imp)) gradle = `${imp}\n${gradle}`;
+}
 gradle = gradle.replace(/^android \{/m, (m) => m + signing);
 gradle = gradle.replace(/getByName\("release"\) \{/, (m) => `${m}\n            signingConfig = signingConfigs.getByName("release")`);
 if (gradle === before || !gradle.includes('signingConfig = signingConfigs')) {
