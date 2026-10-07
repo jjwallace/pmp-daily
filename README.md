@@ -13,7 +13,7 @@ A Duolingo-style daily practice app for the **PMP exam (July 2026 Exam Content O
 - **Tracks every test**: full history with answer review, per-task mastery for all 26 ECO tasks, PMI-style performance bands (Above Target, Target, Below Target, Needs Improvement), score trend, and an exam-readiness estimate.
 - **Feels like a game**: GSAP animations, combos, XP, streaks, haptics, sound, and confetti on the results screen.
 
-All data stays on your device. Use **Settings → Export backup** to move it.
+All data stays on your device. Use **Settings → Export backup** to move it. See [Player data and app updates](docs/data-and-updates.md) for how progress is saved and kept across new versions.
 
 ## Install on Android
 
